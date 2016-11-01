@@ -2,9 +2,35 @@
 	<p>
 		Welcome: <%= current_user.email %>
 		<%= link_to('signout', destroy_user_session_path, :method => :delete) %> 
+		<% @devices = current_user.devices %>
+		<br>
+		<%= link_to('change password', edit_user_registration_path) %> <br>	
+		<table style="border:1px solid black">
+		<tr>
+			<th style="border:1px solid black"> Device Number </th>
+			<th style="border:1px solid black"> Latitude </th>
+			<th style="border:1px solid black"> Longitude </th>
+			<th style="border:1px solid black"> Show </th>
+			<th style="border:1px solid black"> Delete </th>
+		</tr>
+		<% @i = 0 %>
+		<% @devices.each do |d| %>
+			<% @i += 1 %>
+			<tr>
+				<td style="border:1px solid black"> <%= @i %>
+				<td style="border:1px solid black"><%= d.lat %></td>
+				<td style="border:1px solid black"><%= d.long %> </td>
+				<td style="border:1px solid black"><%= link_to('show', d)%> </td>
+				<td style="border:1px solid black"> <%= link_to('delete', d, :method => :delete) %> </td>
+
+			</tr>
+		<% end %>
+		</table>
+
 	</p>
 <% else %>
 	<p>
-		Invalid user or password
+		<%= link_to('Login', '/users/sign_in') %> <br>
+		<%= link_to('Register', '/users/sign_up') %> <br>
 	</p>
 <% end %>

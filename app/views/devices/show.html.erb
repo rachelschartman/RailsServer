@@ -1,3 +1,4 @@
+<% if user_signed_in? and current_user.id == @device.user_id %>
 <head>
     <style>
        #map {
@@ -27,3 +28,8 @@
     </script> <br> <br>
   </body>
 </head>
+<%else%>
+<body>
+  <h1>No user signed in</h1>
+</body>
+<%end%>

@@ -1,11 +1,6 @@
 // Place all the styles related to the Welcom controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-	background-image: url("/images/nature.jpg");
-	background-size: cover;
-}
-
 .button {
 	background-color: #4CAF50;
 	border:none;
@@ -17,7 +12,7 @@ body {
 	font-size: 16px;
 }
 
-button a {
+.button a {
 	text-decoration: none;
 	color: white;
 }

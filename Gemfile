@@ -28,7 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-gem 'bootstrap', '~> 4.0.0.alpha5'
+
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
+gem 'bootstrap-sass',          '3.3.6'
 
 
 # Use Capistrano for deployment

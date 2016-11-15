@@ -1,33 +1,4 @@
-<%= stylesheet_link_tag "/css/mystyle.css" %>
-<style>
-
-.RachelTitle {
-	text-align:center;
-}
-
-.bgJumbo {
-	text-align:center;
-}
-
-.button {
-	color:white;
-}
-.spacing {
-	height:1px;
-	width:20px;
-}
-
-body {
-	background: url("/images/nature.jpg");
-	background-size: cover;
-}
-
-
-</style>
-<body>
 <% if user_signed_in? %>
-<div class = "container">
-<div class = "jumbotron" style="border: 2px solid black">
 	<p>
 		Welcome: <%= current_user.email %>
 		<%= link_to('signout', destroy_user_session_path, :method => :delete) %> 
@@ -57,25 +28,12 @@ body {
 		</table>
 
 	</p>
-</div>
-</div>
 <% else %>
-<div class="container">
-  <div class="jumbotron bgJumbo" style="border: 2px solid black">
-    <h1 class="RachelTitle">Find My Phone</h1> 
-    <br>
-    
-    <a href="/users/sign_in">
-		<button class="button">Sign in</button></a>
-	<a href="/users/sign_up">
-		<button class="button">Register</button></a>
-		<br/>
-		<br/>
-	<%= link_to "For info on our app click here", 'welcom/info' %>
-  </div>
-  
-</div>
+	<div class="center jumbotron">
+		<h1>Where's My Phone?</h1>
+		<h2>Create an account to access the map.</h2>
 
-
+		<%= link_to('Login', '/users/sign_in', class: "btn btn-sm btn-primary") %>
+		<%= link_to('Register', '/users/sign_up', class: "btn btn-sm btn-primary") %> <br>
+	</div>
 <% end %>
-</body>

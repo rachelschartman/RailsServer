@@ -1,0 +1,52 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$gray-medium-light: #eaeaea;
+
+body {
+	background: url("/images/nature.jpg");
+	background-size: cover;
+	padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+  	 margin-bottom: 10px;
+  }
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -3px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: black;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+#logo {
+  float: left;  
+  font-size: 1.7em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-spacing: -1px;
+  color: $gray-medium-light;
+  padding-top: 8px;
+}

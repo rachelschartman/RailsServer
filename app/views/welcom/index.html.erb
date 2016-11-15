@@ -26,6 +26,8 @@ body {
 </style>
 <body>
 <% if user_signed_in? %>
+<div class = "container">
+<div class = "jumbotron" style="border: 2px solid black">
 	<p>
 		Welcome: <%= current_user.email %>
 		<%= link_to('signout', destroy_user_session_path, :method => :delete) %> 
@@ -55,6 +57,8 @@ body {
 		</table>
 
 	</p>
+</div>
+</div>
 <% else %>
 <div class="container">
   <div class="jumbotron bgJumbo" style="border: 2px solid black">
@@ -65,6 +69,9 @@ body {
 		<button class="button">Sign in</button></a>
 	<a href="/users/sign_up">
 		<button class="button">Register</button></a>
+		<br/>
+		<br/>
+	<%= link_to "For info on our app click here", 'welcom/info' %>
   </div>
   
 </div>

@@ -5,6 +5,8 @@ class CreateDevices < ActiveRecord::Migration[5.0]
       t.integer :deviceNum
       t.string :lat
       t.string :long
+      t.string :deviceName
+      t.string :myKey
 
       t.timestamps
     end

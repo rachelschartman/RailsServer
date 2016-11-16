@@ -29,11 +29,10 @@ body {
 <div class = "container">
 <div class = "jumbotron" style="border: 2px solid black">
 	<p>
-		Welcome: <%= current_user.email %>
-		<%= link_to('signout', destroy_user_session_path, :method => :delete) %> 
+		<p style="font-weight:bolder;">
+			Welcome, <%= current_user.email %>
+		</p>
 		<% @devices = current_user.devices %>
-		<br>
-		<%= link_to('change password', edit_user_registration_path) %> <br>	
 		<table class="table" style="border:1px solid black">
 		<tr>
 			<th style="border:1px solid black"> Device Number </th>
@@ -55,7 +54,12 @@ body {
 			</tr>
 		<% end %>
 		</table>
-
+		<%= link_to 'User Settings', edit_user_registration_path, :class => 'btn btn-lg btn-info' %>	
+		<br> 
+		<br>
+		<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-lg btn-danger' %>
+		<br> 
+		<br>
 	</p>
 </div>
 </div>

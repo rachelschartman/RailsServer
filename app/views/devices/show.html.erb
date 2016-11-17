@@ -18,19 +18,29 @@
         <a href="/welcom/index"><button type="button" class="btn btn-primary">Back</button> </a>
 
         <div id="map"></div>
-      </div>
+        <div style="text-align:center;">
+          <h3> Other Devices </h3>
+          
+        </div>
     </div>
+      </div>
     <script>
+      var myMap;
       function initMap() {
         var uluru = {lat: <%=@device.lat%>, lng: <%=@device.long%>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
+        myMap = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
           center: uluru
         });
         var marker = new google.maps.Marker({
           position: uluru,
-          map: map
+          map: myMap
         });
+        myMap.setCenter(new google.maps.LatLang(0,0));
+      }
+
+      function test() {
+        myMap.panTo({lat: 33, lng: 33});
       }
     </script>
     <script async defer

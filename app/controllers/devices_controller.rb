@@ -9,6 +9,18 @@ class DevicesController < ApplicationController
 	end
 
 	def ping
-		hostname = 'localhost';
+		redirect_to :back
+		device = Device.find(params[:id])
+		message = params[:message]
+		hostname = device.ipauth
+		port = 5293
+		begin
+			streamSock = TCPSocket.new(hostname, port)
+			streamSock.write(message + "\r")
+			streamSock.close()
+		rescue
+			return
+		end
+
 	end
 end

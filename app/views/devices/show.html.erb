@@ -7,12 +7,13 @@
         <h5 class="center"> Location of <%= @device.deviceName %> on the map<br>
         Latitude: <%=@device.lat%> <br>
         Longtitude: <%=@device.long%> <br>
+        <%= @device.ipauth %> <br>
         </h5>
 
         <div class = "row">
           <div class = "col-xs-10 text-left" >
             <%= link_to 'Home', '/welcom/index', :class => 'btn btn-info' %>
-            <%= link_to 'Back', :back, :class => 'btn btn-primary' %> 
+            <%= link_to 'Back', :back, :class => 'btn btn-primary' %>
           </div>
 
           <div class = "col-xs-2" >
@@ -33,8 +34,8 @@
 
         <div class="center"> 
         <br>
-        <%= link_to "Lock Device", "#" , :class => "right btn btn-lg btn-success" %> </a>
-        <%= link_to "Sound Alarm", "#" , :class => "right btn btn-lg btn-danger" %> </a> 
+        <%= link_to "Lock Device", {:controller => "devices", :action => "ping", :message => "lock", :id => @device.id}, :class => "right btn btn-lg btn-success", method: :post %> </a>
+        <%= link_to "Sound Alarm", {:controller => "devices", :action => "ping", :message => "alarm", :id => @device.id}, :class => "right btn btn-lg btn-danger", method: :post %> </a> 
         </div>   
 
       </div> <!-- jumbotron -->

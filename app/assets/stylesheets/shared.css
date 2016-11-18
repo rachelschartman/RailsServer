@@ -15,18 +15,13 @@
 	width:20px;
 }
 
-.TableTitle {
-	border:1px solid black;
-	text-align:center;
-}
-
 body {
 	background: url("/images/nature.jpg");
 	background-size: cover;
 }
 
 .jumbotron {
-	opacity: 0.8;
+	/* opacity: 0.8; */
 	border: 2px solid black;
 }
 

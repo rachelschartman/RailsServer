@@ -3,30 +3,29 @@
 	<div class = "container">
 		<div class = "jumbotron">
 			<p>
-				<p style="font-weight:bolder;">
+				<p style="font-weight:bolder">
 					Welcome, <%= current_user.email %>
 				</p>
 				<% @devices = current_user.devices %>
 				<table class="table">
-				<tr>
-					<th style="border:1px solid black; text-align:center"> Device Name </th>
-					<th style="border:1px solid black; text-align:center"> Latitude </th>
-					<th style="border:1px solid black; text-align:center"> Longitude </th>
-					<th style="border:1px solid black; text-align:center"> Show </th>
-					<th style="border:1px solid black; text-align:center"> Delete </th>
-				</tr>
-				<% @i = 0 %>
-				<% @devices.each do |d| %>
-					<% @i += 1 %>
-					<tr>
-						<td style="border:1px solid black"> <%= d.deviceName %>
-						<td style="border:1px solid black"><%= d.lat %></td>
-						<td style="border:1px solid black"><%= d.long %> </td>
-						<td style="border:1px solid black"><%= link_to('Show', d, :class => 'btn btn-sm btn-block btn-warning')%> </td>
-						<td style="border:1px solid black"> <%= link_to('Delete', d, :method => :delete, :class => 'btn btn-sm btn-block btn-danger') %> </td>
-
-					</tr>
-				<% end %>
+						<tr>
+							<th style="border:1px solid black; text-align:center"> Device Name </th>
+							<th style="border:1px solid black; text-align:center"> Latitude </th>
+							<th style="border:1px solid black; text-align:center"> Longitude </th>
+							<th style="border:1px solid black; text-align:center"> Show </th>
+							<th style="border:1px solid black; text-align:center"> Delete </th>
+						</tr>
+					<% @i = 0 %>
+					<% @devices.each do |d| %>
+						<% @i += 1 %>
+						<tr>
+							<td style="border:1px solid black"> <%= d.deviceName %>
+							<td style="border:1px solid black"> <%= d.lat %></td>
+							<td style="border:1px solid black"> <%= d.long %> </td>
+							<td style="border:1px solid black"> <%= link_to('Show', d, :class => 'btn btn-sm btn-block btn-warning')%> </td>
+							<td style="border:1px solid black"> <%= link_to('Delete', d, :method => :delete, :class => 'btn btn-sm btn-block btn-danger') %> </td>
+						</tr>
+					<% end %>
 				</table>
 				<%= link_to 'User Settings', edit_user_registration_path, :class => 'btn btn-lg btn-info' %>	
 				<br> 

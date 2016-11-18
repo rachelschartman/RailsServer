@@ -12,6 +12,45 @@
  *
  */
 
-//= require_tree .
-
 @import "bootstrap";
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.spacing {
+	height:1px;
+	width:20px;
+}
+
+body {
+	background: url("/images/nature.jpg");
+	background-size: cover;
+}
+
+.jumbotron {
+	/* opacity: 0.8; */
+	border: 2px solid black;
+}
+
+.opaque {
+	opacity: 1.0;
+}
+
+.table {
+	border:1px solid black; 
+	text-align:center;
+}
+
+#map {
+	height: 500px;
+	width: 100%;
+}

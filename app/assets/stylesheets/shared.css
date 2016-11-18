@@ -1,0 +1,74 @@
+.button {
+	/*background-color: #4CAF50;*/
+	background-color: blue;
+	border:none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decorate: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.button a {
+	text-decoration: none;
+	color: white;
+}
+
+.RachelTitle {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.button {
+	color: white;
+}
+
+.spacing {
+	height:1px;
+	width:20px;
+}
+
+.TableTitle {
+	border:1px solid black;
+	text-align:center;
+}
+
+body {
+	background: url("/images/nature.jpg");
+	background-size: cover;
+}
+
+.jumbotron {
+	opacity: 0.8;
+	border: 2px solid black;
+}
+
+body {
+	background: url("/images/nature.jpg");
+	background-size: cover;
+}
+
+a:visited {
+	background-color: #4CAF50;
+	border:none;
+	padding: 15px 32px;
+	text-align: center;
+	text-decorate: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.button {
+	background-color: #4CAF50;
+	border:none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decorate: none;
+	display: inline-block;
+	font-size: 16px;
+}

@@ -1,92 +1,55 @@
-<%= stylesheet_link_tag "/css/mystyle.css" %>
-<style>
-
-.RachelTitle {
-	text-align:center;
-}
-
-.bgJumbo {
-	text-align:center;
-}
-
-.button {
-	color:white;
-}
-.spacing {
-	height:1px;
-	width:20px;
-}
-.TableTitle {
-	border:1px solid black;
-	text-align:center;
-}
-
-body {
-	background: url("/images/nature.jpg");
-	background-size: cover;
-}
-
-
-</style>
 <body>
 <% if user_signed_in? %>
-<div class = "container">
-<div class = "jumbotron" style="border: 2px solid black">
-	<p>
-		<p style="font-weight:bolder;">
-			Welcome, <%= current_user.email %>
-		</p>
-		<% @devices = current_user.devices %>
-		<table class="table" style="border:1px solid black; text-align:center">
-		<tr>
-			<th style="border:1px solid black; text-align:center"> Device Name </th>
-			<th style="border:1px solid black; text-align:center"> Latitude </th>
-			<th style="border:1px solid black; text-align:center"> Longitude </th>
-			<th style="border:1px solid black; text-align:center"> Show </th>
-			<th style="border:1px solid black; text-align:center"> Delete </th>
-		</tr>
-		<% @i = 0 %>
-		<% @devices.each do |d| %>
-			<% @i += 1 %>
-			<tr>
-				<td style="border:1px solid black"> <%= d.deviceName %>
-				<td style="border:1px solid black"><%= d.lat %></td>
-				<td style="border:1px solid black"><%= d.long %> </td>
-				<td style="border:1px solid black"><%= link_to('Show', d, :class => 'btn btn-sm btn-block btn-warning')%> </td>
-				<td style="border:1px solid black"> <%= link_to('Delete', d, :method => :delete, :class => 'btn btn-sm btn-block btn-danger') %> </td>
+	<div class = "container">
+		<div class = "jumbotron">
+			<p>
+				<p style="font-weight:bolder;">
+					Welcome, <%= current_user.email %>
+				</p>
+				<% @devices = current_user.devices %>
+				<table class="table" style="border:1px solid black; text-align:center">
+				<tr>
+					<th style="border:1px solid black; text-align:center"> Device Name </th>
+					<th style="border:1px solid black; text-align:center"> Latitude </th>
+					<th style="border:1px solid black; text-align:center"> Longitude </th>
+					<th style="border:1px solid black; text-align:center"> Show </th>
+					<th style="border:1px solid black; text-align:center"> Delete </th>
+				</tr>
+				<% @i = 0 %>
+				<% @devices.each do |d| %>
+					<% @i += 1 %>
+					<tr>
+						<td style="border:1px solid black"> <%= d.deviceName %>
+						<td style="border:1px solid black"><%= d.lat %></td>
+						<td style="border:1px solid black"><%= d.long %> </td>
+						<td style="border:1px solid black"><%= link_to('Show', d, :class => 'btn btn-sm btn-block btn-warning')%> </td>
+						<td style="border:1px solid black"> <%= link_to('Delete', d, :method => :delete, :class => 'btn btn-sm btn-block btn-danger') %> </td>
 
-			</tr>
-		<% end %>
-		</table>
-		<%= link_to 'User Settings', edit_user_registration_path, :class => 'btn btn-lg btn-info' %>	
-		<br> 
-		<br>
-		<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-lg btn-danger' %>
-		<br> 
-		<br>
-		<%= link_to "For info on our app, click here", href="/welcom/info" %>
-	</p>
-</div>
-</div>
+					</tr>
+				<% end %>
+				</table>
+				<%= link_to 'User Settings', edit_user_registration_path, :class => 'btn btn-lg btn-info' %>	
+				<br> 
+				<br>
+				<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-lg btn-danger' %>
+				<br> 
+				<br>
+				<%= link_to "For info on our app, click here", '/welcom/info' %>
+			</p>
+		</div>
+	</div>
 <% else %>
-<div class="container">
-  <div class="jumbotron bgJumbo" style="border: 2px solid black">
-    <h1 class="RachelTitle">Find My Phone</h1> 
-    <br>
-    
-    <%= link_to('Sign In', href="/users/sign_in", :class => 'btn btn-lg btn-success') %>
-    <%= link_to('Register', href="/users/sign_up", :class => 'btn btn-lg btn-success') %>
-		<br/>
-		<br/>
-	<%= link_to "For info on our app click here", href='/welcom/info' %>
-  </div>
-  
-</div>
-
-
-
-
-
-
+	<div class="container">
+	  <div class="center jumbotron">
+	    <h1>Find My Phone</h1> 
+	    <br>
+	    <%= link_to('Sign In', '/users/sign_in', :class => 'btn btn-lg btn-success') %>
+	    <%= link_to('Register', '/users/sign_up', :class => 'btn btn-lg btn-success') %>
+			<br/>
+			<br/>
+		<%= link_to "For info on our app click here", '/welcom/info' %>
+	  </div>
+	  
+	</div>
 <% end %>
 </body>

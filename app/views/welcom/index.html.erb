@@ -39,7 +39,7 @@ body {
 		<% @devices = current_user.devices %>
 		<table class="table" style="border:1px solid black; text-align:center">
 		<tr>
-			<th style="border:1px solid black; text-align:center"> Device Number </th>
+			<th style="border:1px solid black; text-align:center"> Device Name </th>
 			<th style="border:1px solid black; text-align:center"> Latitude </th>
 			<th style="border:1px solid black; text-align:center"> Longitude </th>
 			<th style="border:1px solid black; text-align:center"> Show </th>
@@ -49,7 +49,7 @@ body {
 		<% @devices.each do |d| %>
 			<% @i += 1 %>
 			<tr>
-				<td style="border:1px solid black"> <%= @i %>
+				<td style="border:1px solid black"> <%= d.deviceName %>
 				<td style="border:1px solid black"><%= d.lat %></td>
 				<td style="border:1px solid black"><%= d.long %> </td>
 				<td style="border:1px solid black"><%= link_to('Show', d, :class => 'btn btn-sm btn-block btn-warning')%> </td>

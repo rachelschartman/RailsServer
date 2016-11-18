@@ -1,4 +1,5 @@
 <% if user_signed_in? and current_user.id == @device.user_id %>
+
 <head>
     <style>
        #map {
@@ -10,36 +11,43 @@
   <body>
     
     <div class="container">
-      <div class="jumbotron" style="align-content:center;">
-        <h3 style="text-align:center;"> Hello, <%= current_user.email %><br> Here is the location of your device on the map at<br>
+      <div class="jumbotron" style="align-content:center;border: 2px solid black">
+        <% @devices = current_user.devices %>
+        <h5 style="text-align:center;"> Location of <%= @device.deviceName %> on the map<br>
         Latitude: <%=@device.lat%> <br>
         Longtitude: <%=@device.long%> <br>
         </h3>
-        <a href="/welcom/index"><button type="button" class="btn btn-info">Home</button> </a>
-        <%= link_to 'Back', :back, :class => 'btn btn-primary' %>
+        <div class = "row">
+          <div class = "col-xs-10 text-left" >
+            <a href="/welcom/index"><button type="button" class="btn btn-info">Home</button> </a>
+            <%= link_to 'Back', :back, :class => 'btn btn-primary' %> 
+          </div>
+
+          <div class = "col-xs-2" >
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">See All Devices
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <% @devices.each do |d| %>
+                  <li style="text-align: right"><%= link_to d.deviceName, d, :class => "btn btn-block btn-sm btn-default"%></li>
+                <% end %>
+              </ul>
+            </div>
+          </div> 
+        </div> 
+        <br>
 
         <div id="map"></div>
         <div style="text-align:center;"> 
-          
-        </div>
-        
-        <% @i = 0%>
-        <% @devices = current_user.devices %>
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">See All Devices
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <% @devices.each do |d| %>
-              <% @i += 1%>
-              <li><%= link_to @i, d, :class => "btn btn-block btn-sm btn-default"%></li>
-            <% end %>
-          </ul>
-        </div>
-        <br>        
+        <br>
+        <a style="align-content:right"> <%= link_to "Lock Device",href="#", :class => "btn btn-lg btn-success" %> </a>
+        <a style="align-content:right"> <%= link_to "Sound Alarm",href="#", :class => "btn btn-lg btn-danger" %> </a> 
+        </div>        
     </div>
       </div>
     <script>
       var myMap;
+      myPos = {lat: 33, lng: 33};
       function initMap() {
         var uluru = {lat: <%=@device.lat%>, lng: <%=@device.long%>};
         myMap = new google.maps.Map(document.getElementById('map'), {
@@ -50,10 +58,13 @@
           position: uluru,
           map: myMap
         });
-        myMap.setCenter(new google.maps.LatLang(0,0));
       }
       function test() {
-        myMap.panTo({lat: 33, lng: 33});
+        myMap.setCenter(myPos);
+        var marker = new google.maps.Marker({
+          position: myPos,
+          map: myMap
+        })
       }
     </script>
     <script async defer

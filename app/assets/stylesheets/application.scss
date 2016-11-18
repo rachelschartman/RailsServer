@@ -36,6 +36,16 @@ body {
 	background-size: cover;
 }
 
+.container_header {
+	position: relative;
+	top: -25px;
+}
+
+.field {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 .jumbotron {
 	/* opacity: 0.8; */
 	border: 2px solid black;

@@ -7,6 +7,7 @@ class CreateDevices < ActiveRecord::Migration[5.0]
       t.string :long
       t.string :deviceName
       t.string :myKey
+      t.string :ipauth
 
       t.timestamps
     end

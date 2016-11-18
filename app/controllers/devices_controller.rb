@@ -9,7 +9,6 @@ class DevicesController < ApplicationController
 	end
 
 	def ping
-		redirect_to :back
 		device = Device.find(params[:id])
 		message = params[:message]
 		hostname = device.ipauth

@@ -15,13 +15,27 @@
         Latitude: <%=@device.lat%> <br>
         Longtitude: <%=@device.long%> <br>
         </h3>
-        <a href="/welcom/index"><button type="button" class="btn btn-primary">Back</button> </a>
+        <a href="/welcom/index"><button type="button" class="btn btn-info">Home</button> </a>
+        <%= link_to 'Back', :back, :class => 'btn btn-primary' %>
 
         <div id="map"></div>
-        <div style="text-align:center;">
-          <h3> Other Devices </h3>
+        <div style="text-align:center;"> 
           
         </div>
+        
+        <% @i = 0%>
+        <% @devices = current_user.devices %>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">See All Devices
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% @devices.each do |d| %>
+              <% @i += 1%>
+              <li><%= link_to @i, d, :class => "btn btn-block btn-sm btn-default"%></li>
+            <% end %>
+          </ul>
+        </div>
+        <br>        
     </div>
       </div>
     <script>
@@ -38,7 +52,6 @@
         });
         myMap.setCenter(new google.maps.LatLang(0,0));
       }
-
       function test() {
         myMap.panTo({lat: 33, lng: 33});
       }

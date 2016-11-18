@@ -16,6 +16,10 @@
 	height:1px;
 	width:20px;
 }
+.TableTitle {
+	border:1px solid black;
+	text-align:center;
+}
 
 body {
 	background: url("/images/nature.jpg");
@@ -33,13 +37,13 @@ body {
 			Welcome, <%= current_user.email %>
 		</p>
 		<% @devices = current_user.devices %>
-		<table class="table" style="border:1px solid black">
+		<table class="table" style="border:1px solid black; text-align:center">
 		<tr>
-			<th style="border:1px solid black"> Device Number </th>
-			<th style="border:1px solid black"> Latitude </th>
-			<th style="border:1px solid black"> Longitude </th>
-			<th style="border:1px solid black"> Show </th>
-			<th style="border:1px solid black"> Delete </th>
+			<th style="border:1px solid black; text-align:center"> Device Number </th>
+			<th style="border:1px solid black; text-align:center"> Latitude </th>
+			<th style="border:1px solid black; text-align:center"> Longitude </th>
+			<th style="border:1px solid black; text-align:center"> Show </th>
+			<th style="border:1px solid black; text-align:center"> Delete </th>
 		</tr>
 		<% @i = 0 %>
 		<% @devices.each do |d| %>
@@ -48,8 +52,8 @@ body {
 				<td style="border:1px solid black"> <%= @i %>
 				<td style="border:1px solid black"><%= d.lat %></td>
 				<td style="border:1px solid black"><%= d.long %> </td>
-				<td style="border:1px solid black"><%= link_to('show', d)%> </td>
-				<td style="border:1px solid black"> <%= link_to('delete', d, :method => :delete) %> </td>
+				<td style="border:1px solid black"><%= link_to('Show', d, :class => 'btn btn-sm btn-block btn-warning')%> </td>
+				<td style="border:1px solid black"> <%= link_to('Delete', d, :method => :delete, :class => 'btn btn-sm btn-block btn-danger') %> </td>
 
 			</tr>
 		<% end %>
@@ -60,6 +64,7 @@ body {
 		<%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-lg btn-danger' %>
 		<br> 
 		<br>
+		<%= link_to "For info on our app, click here", href="/welcom/info" %>
 	</p>
 </div>
 </div>
@@ -69,13 +74,11 @@ body {
     <h1 class="RachelTitle">Find My Phone</h1> 
     <br>
     
-    <a href="/users/sign_in">
-		<button class="button">Sign in</button></a>
-	<a href="/users/sign_up">
-		<button class="button">Register</button></a>
+    <%= link_to('Sign In', href="/users/sign_in", :class => 'btn btn-lg btn-success') %>
+    <%= link_to('Register', href="/users/sign_up", :class => 'btn btn-lg btn-success') %>
 		<br/>
 		<br/>
-	<%= link_to "For info on our app click here", 'welcom/info' %>
+	<%= link_to "For info on our app click here", href='/welcom/info' %>
   </div>
   
 </div>

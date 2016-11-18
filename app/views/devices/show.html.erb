@@ -1,25 +1,17 @@
 <% if user_signed_in? and current_user.id == @device.user_id %>
-
-<head>
-    <style>
-       #map {
-        height: 500px;
-        width: 100%;
-       }
-    </style>
-  </head>
   <body>
-    
     <div class="container">
-      <div class="jumbotron" style="align-content:center;border: 2px solid black">
+      <div class="opaque jumbotron">
         <% @devices = current_user.devices %>
-        <h5 style="text-align:center;"> Location of <%= @device.deviceName %> on the map<br>
+
+        <h5 class="center"> Location of <%= @device.deviceName %> on the map<br>
         Latitude: <%=@device.lat%> <br>
         Longtitude: <%=@device.long%> <br>
-        </h3>
+        </h5>
+
         <div class = "row">
           <div class = "col-xs-10 text-left" >
-            <a href="/welcom/index"><button type="button" class="btn btn-info">Home</button> </a>
+            <%= link_to 'Home', '/welcom/index', :class => 'btn btn-info' %>
             <%= link_to 'Back', :back, :class => 'btn btn-primary' %> 
           </div>
 
@@ -38,13 +30,15 @@
         <br>
 
         <div id="map"></div>
-        <div style="text-align:center;"> 
+
+        <div class="center"> 
         <br>
-        <a style="align-content:right"> <%= link_to "Lock Device",href="#", :class => "btn btn-lg btn-success" %> </a>
-        <a style="align-content:right"> <%= link_to "Sound Alarm",href="#", :class => "btn btn-lg btn-danger" %> </a> 
-        </div>        
-    </div>
-      </div>
+        <%= link_to "Lock Device", "#" , :class => "right btn btn-lg btn-success" %> </a>
+        <%= link_to "Sound Alarm", "#" , :class => "right btn btn-lg btn-danger" %> </a> 
+        </div>   
+
+      </div> <!-- jumbotron -->
+    </div> <!-- container -->
     <script>
       var myMap;
       myPos = {lat: 33, lng: 33};

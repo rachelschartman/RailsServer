@@ -34,7 +34,6 @@
 
         <div class="center"> 
         <br>
-        <%= link_to "Lock Device", {:controller => "devices", :action => "ping", :message => "lock", :id => @device.id}, :class => "right btn btn-lg btn-success", method: :post %> </a>
         <%= link_to "Sound Alarm", {:controller => "devices", :action => "ping", :message => "alarm", :id => @device.id}, :class => "right btn btn-lg btn-danger", method: :post %> </a> 
         </div>   
 

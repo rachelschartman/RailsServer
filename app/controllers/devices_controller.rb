@@ -1,4 +1,6 @@
 require 'socket'
+require 'twilio-ruby'
+
 class DevicesController < ApplicationController
 	def show
 		@device = Device.find(params[:id])
@@ -9,17 +11,13 @@ class DevicesController < ApplicationController
 	end
 
 	def ping
-		device = Device.find(params[:id])
-		message = params[:message]
-		hostname = device.ipauth
-		port = 5293
-		begin
-			streamSock = TCPSocket.new(hostname, port)
-			streamSock.write(message + "\r")
-			streamSock.close()
-		rescue
-			return
-		end
+		@client = Twilio::REST::Client.new 'AC690666cb76b64f669245f298b2c17376', '3ac8f63ee33dfbac5c33cfd56595ee56'
+
+		@client.account.messages.create({
+			:to => '+14086665994',
+			:from => '+14154668424',
+			:body => 'alarm',
+			})
 
 	end
 end
